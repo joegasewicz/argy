@@ -23,10 +23,10 @@ class Argy {
   /// argy.parse();
   /// ```
   void parse() {
-    for (var i = 0; i < arguments.length; i + 2) {
-      parsedArgs.add({
-        arguments[i]: arguments[i + 1],
-      });
+    for (var i = 1; i < arguments.length; i+=2) {
+        parsedArgs.add({
+          arguments[i-1]: arguments[i],
+        });
     }
   }
 
