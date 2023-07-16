@@ -4,14 +4,14 @@
 class Argy {
   /// Argy requires a named parameter of [arguments] which
   /// are the passed in cli arguments.
-  List<String> arguments;
+  final List<String> arguments;
 
   /// [parsedArgs] is map of the key values of argument names & values.
-  List<Map<String, String>> parsedArgs = [];
+  final List<Map<String, String>> parsedArgs = [];
 
   /// Stored arguments are added to [storedArgs] as a
   /// list of maps.
-  List<Map<String, String>> storedArgs = [];
+  final List<Map<String, String>> storedArgs = [];
 
   Argy({required this.arguments});
 
