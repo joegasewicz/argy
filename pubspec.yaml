@@ -1,10 +1,10 @@
 name: argy
 description: Manages command line arguments.
-version: 1.0.1
+version: 0.0.2
 repository: https://github.com/joegasewicz/argy
 
 environment:
-  sdk: ^3.0.5
+  sdk: ">=2.12.0 <3.0.0"
 
 # Add regular dependencies here.
 dependencies:

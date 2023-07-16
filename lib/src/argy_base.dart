@@ -13,6 +13,14 @@ class Argy {
   /// list of maps.
   final List<Map<String, String>> storedArgs = [];
 
+  String helpMessage = "";
+
+  String _out = "";
+
+  String get out {
+    return _out;
+  }
+
   Argy({required this.arguments});
 
   /// Parses all command line arguments
@@ -55,14 +63,31 @@ class Argy {
   /// Prints out all cli commands
   ///
   /// ```dart
-  /// var argy = Argy(arguments: myArgs);
-  /// argy.help();
+  /// void main(List<String> arguments) {
+  ///   var argy = Argy(arguments: arguments);
+  ///   argy.add("file", "the file to work on...");
+  ///   argy.add("dir", "the directory to look inside...");
+  ///   argy.help();
+  /// }
+  /// ```
+  /// Produces the following result:
+  ///
+  /// ```
+  /// Example usage:
+  // 	--file				the file to work on...
+  // 	--dir				the directory to look inside...
   /// ```
   void help() {
-    var out = """Example usage:
-
-    """;
-    print(out);
+    if (helpMessage != "") {
+      _out = "$helpMessage\n\n";
+    }
+    _out += "Example usage:\n";
+    for (final argMap in storedArgs) {
+      for (MapEntry e in argMap.entries) {
+        _out += "\t--${e.key}\t\t\t\t${e.value}\n";
+      }
+    }
+    print(_out);
   }
 
   /// Add arguments to [storedArgs].
