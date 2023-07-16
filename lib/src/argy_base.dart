@@ -1,6 +1,6 @@
 // TODO: Put public facing types in this file.
 
-/// Checks if you are awesome. Spoiler: you are.
+/// Manage command line arguments
 class Argy {
   /// Argy requires a named parameter of [arguments] which
   /// are the passed in cli arguments.
