@@ -1,12 +1,26 @@
-name: Publish to pub.dev
+# .github/workflows/publish.yml 
+# This workflow runs when publishing a Dart package on pub.dev.
+name: Publish Workflow
 
 on:
-  push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+*'
+  workflow_dispatch:
+  release:
+    types: [published]
+
+concurrency:
+  group: ${{github.workflow}}-${{github.ref}}
+  cancel-in-progress: true
 
 jobs:
-  publish:
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with:
-      working-directory: lib
+  build:
+    defaults:
+      run:
+        working-directory: .
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: nikosportolos/dart_package@v0.0.6
+        with:
+          publish: true
+          pubdev_token: ${{ secrets.PUBDEV_TOKEN }}
