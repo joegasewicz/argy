@@ -1,6 +1,6 @@
 name: argy
 description: Manages command line arguments.
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/joegasewicz/argy
 
 environment:
