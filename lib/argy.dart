@@ -1,7 +1,7 @@
 /// Support for doing something awesome.
 ///
 /// More dartdocs go here.
-library;
+library argy;
 
 export 'src/argy_base.dart';
 
